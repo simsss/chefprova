@@ -1,7 +1,8 @@
 DEPENDENCIES
-  artifactory
-    path: chef/cookbooks/artifactory
-  jenkins (~> 4.1.2)
+  art
+    path: chef/cookbooks/art
+  jenk
+    path: chef/cookbooks/jenk
 
 GRAPH
   apache2 (3.2.2)
@@ -11,8 +12,15 @@ GRAPH
     build-essential (>= 0.0.0)
     seven_zip (>= 0.0.0)
     windows (>= 0.0.0)
-  artifactory (0.3.1)
+  art (0.3.1)
+    ark (~> 2.2.1)
     artifactory (~> 0.3.1)
+    java_se (~> 8.112.1)
+  artifactory (0.3.1)
+    apache2 (>= 0.0.0)
+    ark (>= 0.0.0)
+    java (>= 0.0.0)
+    runit (>= 0.0.0)
   build-essential (7.0.3)
     compat_resource (>= 12.16.3)
     mingw (>= 1.1)
@@ -23,6 +31,10 @@ GRAPH
     apt (>= 0.0.0)
     homebrew (>= 0.0.0)
     windows (>= 0.0.0)
+  java_se (8.112.1)
+  jenk (4.1.2)
+    java_se (~> 8.112.1)
+    jenkins (~> 4.1.2)
   jenkins (4.1.2)
     compat_resource (>= 12.14.6)
     runit (>= 1.7)

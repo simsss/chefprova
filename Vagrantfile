@@ -4,7 +4,7 @@
 
 Vagrant.configure(2) do |config|
   config.vm.define "jenkins" do |cs|
-    cs.vm.box = "bento/centos-7.2"  
+    cs.vm.box = "bento/centos-7.3"  
     cs.vm.hostname = "jenkins"
     cs.vm.network "forwarded_port", guest: 80, host: 8082
     cs.vm.network "public_network", bridge: "en0: Ethernet", mode: "DHCP"
@@ -17,6 +17,7 @@ Vagrant.configure(2) do |config|
     end
   
 cs.vm.provision :chef_zero do |chef|
+	chef.version = '12.16.42'
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
       chef.nodes_path = './chef/nodes'
@@ -27,13 +28,13 @@ cs.vm.provision :chef_zero do |chef|
      #  "role[my_jenkins]"
      # ]
 	
-	chef.add_recipe "jenkins::default"
+	chef.add_recipe "jenk::default"
   end
   end
 
 
-config.vm.define "artifactory" do |n|
-    n.vm.box = "bento/centos-7.2"
+config.vm.define "artifactory" do |n|   
+ n.vm.box = "bento/centos-7.3"
     n.vm.hostname = "artifactory"
     n.vm.network "forwarded_port", guest: 80, host: 8081
     n.vm.network "public_network", bridge: "en0: Ethernet", mode: "DHCP"
@@ -47,16 +48,17 @@ w.memory =2048
 
 
       n.vm.provision :chef_zero do |chef|
+	chef.version = '12.16.42'
       chef.roles_path = './chef/roles'
       chef.data_bags_path = './chef/data_bags'
       chef.nodes_path = './chef/nodes'
       chef.environments_path = './chef/environments'
-      chef.cookbooks_path = './chef/cookbooks'
+ #     chef.cookbooks_path = './chef/cookbooks'
 
      # chef.run_list = [
      #  "role[my_artifactory]"
      # ]
-	chef.add_recipe "artifactory::default"
+	chef.add_recipe "art::default"
   end
 end
 end

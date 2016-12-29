@@ -1,7 +1,7 @@
 source 'https://supermarket.chef.io'
 
-cookbook 'jenkins', path: './chef/cookbooks/jenkins'
-cookbook 'artifactory', path: './chef/cookbooks/artifactory'
+cookbook 'jenk', path: './chef/cookbooks/jenk'
+cookbook 'art', path: './chef/cookbooks/art'
 
-#cookbook 'jenkins', '~> 4.1.2'
-#cookbook 'artifactory', '~> 0.3.1'
+
+
