@@ -15,7 +15,6 @@ GRAPH
   art (0.3.1)
     ark (~> 2.2.1)
     artifactory (~> 0.3.1)
-    java_se (~> 8.112.1)
   artifactory (0.3.1)
     apache2 (>= 0.0.0)
     ark (>= 0.0.0)
